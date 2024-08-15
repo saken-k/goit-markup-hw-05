@@ -492,7 +492,7 @@ img {
     gap: 24px;
 }
 
-.email-input-label input {
+.subscribe-form .email-input-label input {
     border: 1px solid #fff;
     border-radius: 4px;
     width: 264px;
