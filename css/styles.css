@@ -635,10 +635,7 @@ img {
     margin-bottom: 16px;
 }
 
-.name-block,
-.phone-block,
-.email-block,
-.comment-block {
+.form-block {
     margin-bottom: 8px;
     width: 100%;
 }
@@ -652,15 +649,13 @@ img {
     margin-bottom: 4px;
 }
 
-.name-input,
-.phone-input,
-.email-input {
+.form-input {
     position: relative;
 }
 
-.name-input input,
-.phone-input input,
-.email-input input,
+.username,
+.phone,
+.email,
 .comment-textarea {
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
@@ -677,16 +672,6 @@ img {
 .email-input input:focus-within,
 .comment-textarea:focus-within {
     border-color: #4d5ae5;
-}
-
-.name-input .username,
-.phone-input .phone,
-.email-input .email,
-.modal-form-label .phone,
-.modal-form-label .email {
-    background-repeat: no-repeat;
-    background-position: 16px;
-    padding-left: 38px;
 }
 
 input:focus-within + svg {
