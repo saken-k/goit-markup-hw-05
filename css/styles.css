@@ -653,13 +653,11 @@ img {
     margin-bottom: 4px;
 }
 
-.form-input {
+.form-div {
     position: relative;
 }
 
-.username,
-.phone,
-.email,
+.form-input,
 .comment-textarea {
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
@@ -671,9 +669,7 @@ img {
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.username:focus-within,
-.phone:focus-within,
-.email:focus-within,
+.form-input:focus-within,
 .comment-textarea:focus-within {
     border-color: #4d5ae5;
 }
