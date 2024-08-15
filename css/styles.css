@@ -640,6 +640,10 @@ img {
     width: 100%;
 }
 
+.comment-block {
+    margin-bottom: 16px;
+}
+
 .modal-form-label {
     display: block;
     font-size: 12px;
@@ -667,9 +671,9 @@ img {
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.name-input input:focus-within,
-.phone-input input:focus-within,
-.email-input input:focus-within,
+.username:focus-within,
+.phone:focus-within,
+.email:focus-within,
 .comment-textarea:focus-within {
     border-color: #4d5ae5;
 }
