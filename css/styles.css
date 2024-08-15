@@ -492,7 +492,7 @@ img {
     gap: 24px;
 }
 
-.subscribe-form .email-input-label input {
+.subscribe-form .subscribe-input {
     border: 1px solid #fff;
     border-radius: 4px;
     width: 264px;
@@ -504,7 +504,7 @@ img {
     line-height: 2;
     letter-spacing: 0.04em;
     color: #fff;
-    background-color: #2e2f42;
+    background-color: transparent;
     outline: none;
 }
 
@@ -522,6 +522,9 @@ img {
     background-color: #4d5ae5;
 
     text-align: center;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -606,6 +609,7 @@ img {
 .modal-close-btn:hover,
 .modal-close-btn:focus {
     fill: #fff;
+    border: none;
     background-color: #404bbf;
 }
 
@@ -664,6 +668,7 @@ img {
     height: 40px;
     padding-left: 38px;
     outline: transparent;
+    background-color: transparent;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -732,7 +737,7 @@ input:focus-within + svg {
     width: 16px;
     height: 16px;
     border: 1px solid rgba(46, 47, 66, 0.4);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-accept-label {
@@ -771,6 +776,7 @@ input:checked + label > span {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
     background-color: #4d5ae5;
     font-weight: 500;
+    line-height: 1.5;
     letter-spacing: 0.04em;
     text-align: center;
     color: #fff;
