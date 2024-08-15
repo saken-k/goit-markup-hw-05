@@ -661,7 +661,7 @@ img {
 .name-input input,
 .phone-input input,
 .email-input input,
-.comment-input textarea {
+.comment-textarea {
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
     width: 100%;
@@ -675,7 +675,7 @@ img {
 .name-input input:focus-within,
 .phone-input input:focus-within,
 .email-input input:focus-within,
-.comment-input textarea:focus-within {
+.comment-textarea:focus-within {
     border-color: #4d5ae5;
 }
 
@@ -705,7 +705,7 @@ input:focus-within + svg {
     margin-bottom: 16px;
 }
 
-.comment-input textarea {
+.comment-textarea {
     height: 120px;
     padding: 8px 16px;
     font-size: 12px;
