@@ -487,7 +487,7 @@ img {
     margin-bottom: 16px;
 }
 
-.subscribe-container {
+.subscribe-form {
     display: flex;
     gap: 24px;
 }
@@ -513,17 +513,17 @@ img {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 16px;
+    /* gap: 16px; */
 
     border-radius: 4px;
     padding: 8px 24px;
-    width: 165px;
+    min-width: 165px;
     height: 40px;
     background-color: #4d5ae5;
 
     text-align: center;
     color: #fff;
-    border: 0;
+    border: none;
     cursor: pointer;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -531,6 +531,10 @@ img {
 .subscribe-button:hover,
 .subscribe-button:focus {
     background-color: #404BBF;
+}
+
+.subscribe-button .icon {
+    margin-left: 16px;
 }
 
 .email-input .subscribe-button .icon {
@@ -541,21 +545,20 @@ img {
 
 
 .modal-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-
+    background-color: rgba(46, 47, 66, 0.4);
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     z-index: 999;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 
     /* opacity: 0;
     pointer-events: none; */
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-overlay.is-open {
@@ -564,19 +567,26 @@ img {
 }
 
 .modal {
+    position: absolute;
     background-color: #fff;
     border-radius: 4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 408px;
-    height: 584px;
+    min-height: 584px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
     background: #fcfcfc;
     display: flex;
     flex-direction: column;
-    padding: 24px;
+    padding: 72px 24px 24px 24px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-btn {
-    margin-left: auto;
+    position: absolute;
+    top: 24px;
+    right: 24px;
     text-align: center;
     border-radius: 50%;
     background-color: #e7e9fc;
@@ -584,14 +594,23 @@ img {
     width: 24px;
     height: 24px;
     cursor: pointer;
-    margin-bottom: 24px;
-    transition: background-color, fill 250ms, 250ms cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
 }
 
 .modal-close-btn:hover,
 .modal-close-btn:focus {
     fill: #fff;
     background-color: #404bbf;
+}
+
+.modal-icon-btn {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .leave-contacts {
@@ -606,40 +625,58 @@ img {
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    gap: 8px;
 
     border-radius: 4px;
     width: 360px;
-    /* height: 336px; */
     margin-bottom: 16px;
 }
 
+.name-block,
+.phone-block,
+.email-block,
+.comment-block {
+    margin-bottom: 8px;
+    width: 100%;
+}
+
 .modal-form-label {
-    display: flex;
-    flex-direction: column;
+    display: block;
     font-size: 12px;
-    line-height: 1.16667;
+    line-height: 1.17;
     letter-spacing: 0.04em;
-    color: rgba(46, 47, 66, 0.4);
-    gap: 4px;
+    color: #8e8f99;
+    margin-bottom: 4px;
+}
+
+.name-input,
+.phone-input,
+.email-input {
     position: relative;
 }
 
-.modal-form-label input,
-.modal-form-label textarea {
+.name-input input,
+.phone-input input,
+.email-input input,
+.comment-input textarea {
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-    width: 360px;
+    width: 100%;
     height: 40px;
-    outline: none;
+    padding-left: 38px;
+    outline: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-form-label input:focus-within,
-.modal-form-label textarea:focus-within {
+.name-input input:focus-within,
+.phone-input input:focus-within,
+.email-input input:focus-within,
+.comment-input textarea:focus-within {
     border-color: #4d5ae5;
 }
 
-.modal-form-label .username,
+.name-input .username,
+.phone-input .phone,
+.email-input .email,
 .modal-form-label .phone,
 .modal-form-label .email {
     background-repeat: no-repeat;
@@ -651,20 +688,27 @@ input:focus-within + svg {
     fill: #4d5ae5;
 }
 
-.modal-form-label .modal-icon {
+.modal-icon {
     position: absolute;
-    top: 30px;
-    left: 15px;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-form-label textarea {
+.comment-block {
+    margin-bottom: 16px;
+}
+
+.comment-input textarea {
     height: 120px;
-    padding-left: 16px;
-    padding-top: 8px;
+    padding: 8px 16px;
     font-size: 12px;
-    line-height: 1.16667;
+    line-height: 1.17;
     letter-spacing: 0.04em;
-    color: #2e2f42;
+    color: rgba(46, 47, 66, 0.4);
+    background-color: transparent;
+    resize: none;
 }
 
 .modal-accept {
@@ -693,19 +737,19 @@ input:focus-within + svg {
 
 .modal-accept-label {
     font-size: 12px;
-    line-height: 1.16667;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
 }
 
-input:checked + span {
+input:checked + label > span {
     background-color: #404bbf;
     border: none;
     fill: #F4F4FD;
 }
 
-.modal-accept-label a {
-    line-height: 1.33333;
+.privacy-policy {
+    line-height: 1.33;
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: #4d5ae5;    
@@ -713,7 +757,7 @@ input:checked + span {
 
 .modal-send-btn {
     margin: 0 auto;
-    display: flex;
+    display: block;
     align-items: flex-start;
     justify-content: center;
     flex-direction: row;
@@ -721,7 +765,7 @@ input:checked + span {
 
     border-radius: 4px;
     padding: 16px 32px;
-    width: 169px;
+    min-width: 169px;
     height: 56px;
 
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
@@ -732,7 +776,7 @@ input:checked + span {
     color: #fff;
 
     cursor: pointer;
-    border: 0;
+    border: none;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
